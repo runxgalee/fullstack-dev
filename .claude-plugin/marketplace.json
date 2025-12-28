@@ -6,11 +6,13 @@
   "plugins": [
     {
       "id": "frontend",
-      "name": "Frontend Development Plugin",
+      "name": "frontend",
       "source": "./plugins/frontend",
       "version": "1.0.0",
       "description": "Frontend development plugin with specialized agents for React, TypeScript, UI components, and modern frontend development workflows",
-      "author": "runxgalee",
+      "author": {
+        "name": "runxgalee"
+      },
       "license": "MIT",
       "category": "development",
       "tags": ["frontend", "react", "typescript", "ui", "components", "nextjs", "tailwind"],
@@ -18,11 +20,13 @@
     },
     {
       "id": "backend",
-      "name": "Backend Development Plugin",
+      "name": "backend",
       "source": "./plugins/backend",
       "version": "1.0.0",
       "description": "Backend development plugin with specialized agents for API development, database management, server-side logic, and backend infrastructure",
-      "author": "runxgalee",
+      "author": {
+        "name": "runxgalee"
+      },
       "license": "MIT",
       "category": "development",
       "tags": ["backend", "api", "database", "server", "nodejs", "rest", "graphql"],
@@ -30,11 +34,13 @@
     },
     {
       "id": "development",
-      "name": "Development Workflow Plugin",
+      "name": "development",
       "source": "./plugins/development",
       "version": "1.0.0",
       "description": "Development workflow plugin with agents, commands, hooks, and skills for automated testing, code quality, deployment, and productivity enhancement",
-      "author": "runxgalee",
+      "author": {
+        "name": "runxgalee"
+      },
       "license": "MIT",
       "category": "development",
       "tags": ["development", "workflow", "automation", "productivity", "tools", "ci-cd", "testing"],
