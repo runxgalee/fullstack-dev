@@ -1,0 +1,47 @@
+{
+  "plugins": [
+    {
+      "id": "frontend",
+      "name": "Frontend Development Plugin",
+      "source": "./plugins/frontend",
+      "version": "1.0.0",
+      "description": "Frontend development plugin with specialized agents for React, TypeScript, UI components, and modern frontend development workflows",
+      "author": "runxgalee",
+      "license": "MIT",
+      "category": "development",
+      "tags": ["frontend", "react", "typescript", "ui", "components", "nextjs", "tailwind"],
+      "repository": "https://github.com/runxgalee/fullstack-dev"
+    },
+    {
+      "id": "backend",
+      "name": "Backend Development Plugin",
+      "source": "./plugins/backend",
+      "version": "1.0.0",
+      "description": "Backend development plugin with specialized agents for API development, database management, server-side logic, and backend infrastructure",
+      "author": "runxgalee",
+      "license": "MIT",
+      "category": "development",
+      "tags": ["backend", "api", "database", "server", "nodejs", "rest", "graphql"],
+      "repository": "https://github.com/runxgalee/fullstack-dev"
+    },
+    {
+      "id": "development",
+      "name": "Development Workflow Plugin",
+      "source": "./plugins/development",
+      "version": "1.0.0",
+      "description": "Development workflow plugin with agents, commands, hooks, and skills for automated testing, code quality, deployment, and productivity enhancement",
+      "author": "runxgalee",
+      "license": "MIT",
+      "category": "development",
+      "tags": ["development", "workflow", "automation", "productivity", "tools", "ci-cd", "testing"],
+      "repository": "https://github.com/runxgalee/fullstack-dev"
+    }
+  ],
+  "metadata": {
+    "collection_name": "Fullstack Development Plugins",
+    "collection_version": "1.0.0",
+    "description": "A comprehensive collection of Claude Code plugins for fullstack development workflows",
+    "created": "2025-12-28",
+    "updated": "2025-12-28"
+  }
+}
