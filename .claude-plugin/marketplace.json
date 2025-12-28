@@ -1,4 +1,8 @@
 {
+  "name": "fullstack-dev",
+  "owner": {
+    "name": "runxgalee"
+  },
   "plugins": [
     {
       "id": "frontend",
