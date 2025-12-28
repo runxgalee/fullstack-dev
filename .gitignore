@@ -1,0 +1,13 @@
+# Claude Code
+.claude/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+# Node.js (if used in plugins)
+node_modules/
+
+
