@@ -2,6 +2,10 @@
 
 This repository manages custom plugins for Claude Code.
 
+## Compatibility
+
+This plugin collection is designed for **Claude Code CLI** and follows the official plugin marketplace specification. Compatible with Claude Code version 1.0.0 and above.
+
 ## 📁 Project Structure
 
 ```
@@ -18,78 +22,99 @@ fullstack-dev/
 
 ### 1. Frontend Plugin
 
-Specialized agents for frontend development.
+Specialized agents for frontend development and UI engineering.
 
-**Included Agents:**
-- `react-specialist` - React development expert
-- `typescript-specialist` - TypeScript type system expert
-- `tailwind-specialist` - Tailwind CSS expert
-- `graphql-architect` - GraphQL architecture expert
+**Included Agents (4):**
+- `react-specialist` - React 19, Next.js 15, and modern frontend architecture expert
+- `typescript-specialist` - Advanced TypeScript type system and strict type safety expert
+- `tailwind-specialist` - Tailwind CSS design systems and performance optimization expert
+- `graphql-architect` - GraphQL architecture, federation, and schema design expert
 
 ### 2. Backend Plugin
 
-Specialized agents for backend development.
+Specialized agents for backend development, infrastructure, and data engineering.
 
-**Included Agents:**
-- `backend-architect` - Backend architecture design
-- `go-specialist` - Go language development expert
-- `k8s-specialist` - Kubernetes operations expert
-- `terraform-specialist` - Terraform/IaC expert
-- `grpc-specialist` - gRPC service design expert
-- `security-specialist` - Security and DevSecOps expert
-- `sql-specialist` - SQL database expert
-- `cicd-specialist` - Expert deployment engineer specializing in modern CI/CD pipelines
+**Included Agents (14):**
+- `backend-architect` - Backend architecture and microservices design
+- `go-specialist` - Go language development with modern patterns and concurrency
+- `k8s-specialist` - Kubernetes operations and cloud-native platform engineering
+- `terraform-specialist` - Terraform/OpenTofu IaC automation expert
+- `grpc-specialist` - gRPC service design and streaming systems
+- `security-specialist` - Security, DevSecOps, and compliance frameworks
+- `sql-specialist` - SQL database optimization and query tuning
+- `cicd-specialist` - CI/CD pipelines and deployment automation
+- `cloud-architect` - AWS/Azure/GCP multi-cloud infrastructure and FinOps
+- `data-engineer` - Data pipelines, warehouses, and streaming architectures
+- `postgres-specialist` - PostgreSQL database design and performance optimization
+- `database-architect` - Database technology selection and schema design
+- `sre-specialist` - Production monitoring, observability, and SRE practices
+- `graphql-architect` - GraphQL architecture, federation, and schema design expert (also in frontend)
 
 ### 3. Development Plugin
 
-Comprehensive plugin supporting overall development workflows.
+Comprehensive plugin supporting overall development workflows, code quality, and project management.
 
 **Components:**
-- **Agents** - Specialized agents
-  - `code-reviewer` - Code review expert
-  - `debug-specialist` - Debugging expert
-  - `documentation-architect` - Documentation expert
-  - `context-orchestrator` - Context management expert
-  - `codebase-analyzer` - Analyzes codebases to identify architectural issues, code redundancy, and complexity
 
-- **Commands** - Custom commands
-  - `/code-explain` - Code explanation
-  - `/dev-docs` - Generate development documentation
-  - `/dev-docs-update` - Update documentation
-  - `/create-command` - Create new command
-  - `/create-agent` - Create new agent
-  - `/analyze-codebase` - Analyze codebase for architectural issues, code redundancy, complexity
-  - `/analyze-directory` - Analyze code and documentation within a specified directory
-  - `/create-skill` - Create a new skill with automated testing and validation
-  - `/optimize-description` - Transform a brief or vague prompt into a clear, specific description
+- **Agents (6)** - Specialized development agents
+  - `code-reviewer` - AI-powered code analysis and security scanning
+  - `debug-specialist` - Error analysis and debugging expert
+  - `documentation-architect` - Technical documentation and architecture guides
+  - `context-orchestrator` - Context management and AI orchestration
+  - `codebase-analyzer` - Architectural analysis, code redundancy, and complexity assessment
+  - `project-analyzer` - Comprehensive project onboarding and architecture audits
 
-- **Hooks** - Event hooks
+- **Commands (14)** - Custom slash commands
+  - `/code-explain` - Explain code functionality and behavior
+  - `/dev-docs` - Generate comprehensive development documentation
+  - `/dev-docs-update` - Update existing documentation
+  - `/create-command` - Create new custom slash command
+  - `/create-agent` - Create new specialized agent
+  - `/analyze-codebase` - Analyze architecture, redundancy, and complexity
+  - `/analyze-directory` - Analyze code within a specific directory
+  - `/create-skill` - Create new skill with automated testing
+  - `/optimize-description` - Transform vague prompts into clear descriptions
+  - `/review-docs` - Review documentation for format, consistency, and security
+  - `/commit` - Create git commits with smart grouping and Conventional Commits format
+  - `/commit-pr` - Create commits and draft pull request
+  - `/onboarding-report` - Generate comprehensive project onboarding report
+  - `/git-workflow` - Complete git workflow with multi-agent orchestration
+
+- **Hooks (2)** - Event hooks
   - `post-tool-use-tracker` - Post-tool usage tracking
+  - `skill-activation-prompt` - Skill activation prompt handler
 
-- **Skills** - Reusable skills
-  - `writing-skills` - Writing assistance skills
-  - `creating-github-actions-workflows` - Use when setting up CI/CD pipelines and automating testing/deployment
+- **Skills (2)** - Reusable skills
+  - `writing-skills` - Collection of writing assistance skills (directory with multiple sub-skills)
+  - `creating-github-actions-workflows` - CI/CD pipeline setup and automation
 
 ## 🚀 Usage
 
-This repository is designed to work as a Claude Code plugin marketplace. 
+This repository is designed to work as a Claude Code plugin marketplace. Install individual plugins using the following commands:
 
 ```bash
+# Install frontend development plugin
 /plugin install frontend@fullstack-dev
+
+# Install backend development plugin
 /plugin install backend@fullstack-dev
+
+# Install development workflow plugin
 /plugin install development@fullstack-dev
 ```
 
 ## 📚 References
 
-- [Claude Code Plugins Documentation](https://code.claude.com/docs/en/plugins)
-- [Plugin Marketplaces Guide](https://code.claude.com/docs/en/plugin-marketplaces)
-- [Slash Commands Reference](https://code.claude.com/docs/en/slash-commands)
-- [Skills Documentation](https://code.claude.com/docs/en/skills)
-- [Hooks Guide](https://code.claude.com/docs/en/hooks-guide)
+Comprehensive resources for Claude Code plugins and features:
 
-## Inspired By repositories
+- [Claude Code Plugins Documentation](https://code.claude.com/docs/en/plugins) - Plugin development guide
+- [Plugin Marketplaces Guide](https://code.claude.com/docs/en/plugin-marketplaces) - Creating and managing plugin marketplaces
+- [Slash Commands Reference](https://code.claude.com/docs/en/slash-commands) - Custom command creation
+- [Skills Documentation](https://code.claude.com/docs/en/skills) - Building reusable skills
+- [Hooks Guide](https://code.claude.com/docs/en/hooks-guide) - Event-driven hooks
 
-- https://github.com/wshobson/agents
-- https://github.com/diet103/claude-code-infrastructure-showcase
-- https://github.com/davepoon/claude-code-subagents-collection
+## Inspired by Repositories
+
+- https://github.com/wshobson/agents - Agent collection and patterns
+- https://github.com/diet103/claude-code-infrastructure-showcase - Infrastructure automation examples
+- https://github.com/davepoon/claude-code-subagents-collection - Specialized subagent implementations
