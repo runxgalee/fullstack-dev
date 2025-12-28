@@ -6,8 +6,8 @@ This repository manages custom plugins for Claude Code.
 
 ```
 fullstack-dev/
-├── .claude/
-│   └── settings.json          # Claude Code configuration
+├── .claude-plugin/
+│   └── marketplace.json       # Claude Code configuration
 └── plugins/
     ├── frontend/              # Frontend development plugin
     ├── backend/               # Backend development plugin
@@ -38,6 +38,7 @@ Specialized agents for backend development.
 - `grpc-specialist` - gRPC service design expert
 - `security-specialist` - Security and DevSecOps expert
 - `sql-specialist` - SQL database expert
+- `cicd-specialist` - Expert deployment engineer specializing in modern CI/CD pipelines
 
 ### 3. Development Plugin
 
@@ -49,6 +50,7 @@ Comprehensive plugin supporting overall development workflows.
   - `debug-specialist` - Debugging expert
   - `documentation-architect` - Documentation expert
   - `context-orchestrator` - Context management expert
+  - `codebase-analyzer` - Analyzes codebases to identify architectural issues, code redundancy, and complexity
 
 - **Commands** - Custom commands
   - `/code-explain` - Code explanation
@@ -56,61 +58,38 @@ Comprehensive plugin supporting overall development workflows.
   - `/dev-docs-update` - Update documentation
   - `/create-command` - Create new command
   - `/create-agent` - Create new agent
+  - `/analyze-codebase` - Analyze codebase for architectural issues, code redundancy, complexity
+  - `/analyze-directory` - Analyze code and documentation within a specified directory
+  - `/create-skill` - Create a new skill with automated testing and validation
+  - `/optimize-description` - Transform a brief or vague prompt into a clear, specific description
 
 - **Hooks** - Event hooks
   - `post-tool-use-tracker` - Post-tool usage tracking
 
 - **Skills** - Reusable skills
-  - Writing skills - Writing assistance skills
+  - `writing-skills` - Writing assistance skills
+  - `creating-github-actions-workflows` - Use when setting up CI/CD pipelines and automating testing/deployment
 
 ## 🚀 Usage
 
-### Enabling Plugins
+This repository is designed to work as a Claude Code plugin marketplace. 
 
-1. Enable plugins in Claude Code settings file (`.claude/settings.json`)
-2. Each plugin directory can be managed independently
-
-### Plugin Development
-
-Recommended directory structure for each plugin:
-
+```bash
+/plugin install frontend@fullstack-dev
+/plugin install backend@fullstack-dev
+/plugin install development@fullstack-dev
 ```
-plugin-name/
-├── .claude-plugin/
-│   └── plugin.json           # Plugin metadata
-├── agents/                   # Agent definitions (.md files)
-├── commands/                 # Command definitions (.md files)
-├── hooks/                    # Event hooks (.sh files)
-└── skills/                   # Skill definitions (.md files)
-```
-
-## 📝 Adding New Plugins
-
-1. Create a new directory under `plugins/`
-2. Create `.claude-plugin/plugin.json` and define metadata
-3. Add `agents/`, `commands/`, `hooks/`, `skills/` as needed
-4. Create markdown/shell script files for each component
-
-### Example plugin.json
-
-```json
-{
-  "name": "my-plugin",
-  "version": "1.0.0",
-  "description": "Plugin description",
-  "author": "Author name"
-}
-```
-
-## 🛠️ Templates
-
-Agent creation templates are available in each plugin's `agents/templates/` directory:
-
-- `specialist-agent-template.md` - For specialist agents
-- `task-agent-template.md` - For task execution agents
 
 ## 📚 References
 
-- [Claude Code Official Documentation](https://github.com/anthropics/claude-code)
-- For plugin development details, refer to `/create-agent` and `/create-command` commands
+- [Claude Code Plugins Documentation](https://code.claude.com/docs/en/plugins)
+- [Plugin Marketplaces Guide](https://code.claude.com/docs/en/plugin-marketplaces)
+- [Slash Commands Reference](https://code.claude.com/docs/en/slash-commands)
+- [Skills Documentation](https://code.claude.com/docs/en/skills)
+- [Hooks Guide](https://code.claude.com/docs/en/hooks-guide)
 
+## Inspired By repositories
+
+- https://github.com/wshobson/agents
+- https://github.com/diet103/claude-code-infrastructure-showcase
+- https://github.com/davepoon/claude-code-subagents-collection
