@@ -64,7 +64,7 @@ Comprehensive plugin supporting overall development workflows, code quality, and
   - `codebase-analyzer` - Architectural analysis, code redundancy, and complexity assessment
   - `project-analyzer` - Comprehensive project onboarding and architecture audits
 
-- **Commands (14)** - Custom slash commands
+- **Commands (15)** - Custom slash commands
   - `/code-explain` - Explain code functionality and behavior
   - `/dev-docs` - Generate comprehensive development documentation
   - `/dev-docs-update` - Update existing documentation
@@ -72,21 +72,22 @@ Comprehensive plugin supporting overall development workflows, code quality, and
   - `/create-agent` - Create new specialized agent
   - `/analyze-codebase` - Analyze architecture, redundancy, and complexity
   - `/analyze-directory` - Analyze code within a specific directory
-  - `/create-skill` - Create new skill with automated testing
+  - `/create-skill` - Interactive skill creation workflow with guided prompts and templates
   - `/optimize-description` - Transform vague prompts into clear descriptions
   - `/review-docs` - Review documentation for format, consistency, and security
   - `/commit` - Create git commits with smart grouping and Conventional Commits format
   - `/commit-pr` - Create commits and draft pull request
   - `/onboarding-report` - Generate comprehensive project onboarding report
   - `/git-workflow` - Complete git workflow with multi-agent orchestration
+  - `/plan-execution` - Create execution plans with agent selection and sequencing strategy
 
 - **Hooks (2)** - Event hooks
   - `post-tool-use-tracker` - Post-tool usage tracking
   - `skill-activation-prompt` - Skill activation prompt handler
 
 - **Skills (2)** - Reusable skills
-  - `writing-skills` - Collection of writing assistance skills (directory with multiple sub-skills)
-  - `creating-github-actions-workflows` - CI/CD pipeline setup and automation
+  - `skill-developer` - Create and manage Claude Code skills following Anthropic best practices
+  - `brainstorming` - Collaborative ideation and exploration before implementation
 
 ## 🚀 Usage
 

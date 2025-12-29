@@ -1,16 +1,31 @@
 ---
-description: Create a new skill with automated testing and validation using the writing-skills agent
+description: Interactive skill creation workflow with guided prompts, templates, and best practices enforcement
 ---
 
 ## Task
 
-Use the Task tool to invoke the `writing-skills` agent to create a new skill with proper testing and validation.
+Use the skill-developer skill to create a new Claude Code skill with an interactive, guided workflow.
 
-The agent will:
-- Create the skill file with proper structure
-- Write comprehensive test cases
-- Validate the skill syntax and configuration
-- Test the skill invocation to ensure it works correctly
-- Provide verification steps
+The skill-developer provides:
+- Guided prompts for skill name, description, and functionality
+- Template selection based on skill complexity and purpose
+- Best practices enforcement for skill structure and documentation
+- Automatic plugin category determination
+- File creation in appropriate plugin directories
+- Symlink creation in .claude/skills/
+- Comprehensive documentation with examples
+- Validation of skill structure
+- README.md updates
 
-Pass the user's skill description and requirements to the agent, asking it to create a testable skill with all necessary validation.
+### Process
+
+1. Invoke the skill-developer skill using the Skill tool
+2. Follow the interactive prompts to define your skill
+3. Review the generated skill structure
+4. Validate and deploy the skill
+
+### Arguments
+
+- `{{args}}` - Optional: Skill name or brief description to initialize the workflow
+
+If no arguments provided, skill-developer will start with interactive prompts.
