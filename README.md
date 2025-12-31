@@ -64,12 +64,13 @@ Comprehensive plugin supporting overall development workflows, code quality, and
   - `codebase-analyzer` - Architectural analysis, code redundancy, and complexity assessment
   - `project-analyzer` - Comprehensive project onboarding and architecture audits
 
-- **Commands (15)** - Custom slash commands
+- **Commands (16)** - Custom slash commands
   - `/code-explain` - Explain code functionality and behavior
   - `/dev-docs` - Generate comprehensive development documentation
   - `/dev-docs-update` - Update existing documentation
   - `/create-command` - Create new custom slash command
   - `/create-agent` - Create new specialized agent
+  - `/create-issue` - Create GitHub issue with structured planning documentation
   - `/analyze-codebase` - Analyze architecture, redundancy, and complexity
   - `/analyze-directory` - Analyze code within a specific directory
   - `/create-skill` - Interactive skill creation workflow with guided prompts and templates
