@@ -3,6 +3,7 @@
   "owner": {
     "name": "runxgalee"
   },
+  "description": "A comprehensive suite of plugins designed to enhance fullstack development workflows, covering frontend, backend, and overall development processes with specialized agents, commands, hooks, and skills.",
   "plugins": [
     {
       "name": "frontend",
