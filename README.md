@@ -56,13 +56,14 @@ Comprehensive plugin supporting overall development workflows, code quality, and
 
 **Components:**
 
-- **Agents (6)** - Specialized development agents
+- **Agents (7)** - Specialized development agents
   - `code-reviewer` - AI-powered code analysis and security scanning
   - `debug-specialist` - Error analysis and debugging expert
   - `documentation-architect` - Technical documentation and architecture guides
   - `context-orchestrator` - Context management and AI orchestration
   - `codebase-analyzer` - Architectural analysis, code redundancy, and complexity assessment
   - `project-analyzer` - Comprehensive project onboarding and architecture audits
+  - `claude-code-architect` - Claude Code architecture understanding and dynamic component generation
 
 - **Commands (16)** - Custom slash commands
   - `/code-explain` - Explain code functionality and behavior
