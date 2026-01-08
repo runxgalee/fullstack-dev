@@ -1,38 +1,27 @@
 ---
 description: Create git commit and push changes to remote repository
+allowedTools:
+  - Command(development:commit)
+  - Bash(git:*)
 ---
 
 ## Task
 
-Create a git commit with appropriate commit message and push changes to the remote repository.
+Create git commit(s) using the /commit command and push changes to the remote repository.
 
 Follow this workflow:
 
-1. **Review changes**
-   - Run `git status` to see all changes
-   - Run `git diff` to see unstaged changes
-   - Run `git diff --staged` to see staged changes (if any)
-   - Run `git log -3 --oneline` to understand commit message style
+1. **Create commit(s) using /commit command**
+   - Use the Skill tool to invoke the `commit` skill
+   - If arguments are provided to this command, pass them to /commit (e.g., issue number)
+   - The /commit command will handle:
+     - Analyzing staged changes
+     - Grouping changes intelligently
+     - Creating conventional commit messages
+     - Following git safety practices
 
-2. **Stage changes**
-   - Add relevant files to staging area
-   - Do not commit files that likely contain secrets (.env, credentials.json, etc.)
-   - Warn user if they request to commit sensitive files
-
-3. **Create commit**
-   - Analyze all staged changes
-   - Draft a concise commit message (1-2 sentences) following conventional commit format
-   - Focus on "why" rather than "what"
-   - Match the repository's existing commit message style
-   - Use heredoc format for the commit message:
-     ```bash
-     git commit -m "$(cat <<'EOF'
-     Commit message here.
-     EOF
-     )"
-     ```
-
-4. **Push to remote**
+2. **Push to remote**
+   - After commit(s) are created successfully, push to remote
    - Check if current branch tracks a remote branch
    - If no upstream branch exists, push with `-u` flag: `git push -u origin <branch-name>`
    - If upstream exists, use: `git push`
@@ -42,8 +31,7 @@ Follow this workflow:
 - NEVER update git config
 - NEVER run destructive commands (force push, hard reset) unless explicitly requested
 - NEVER skip hooks (--no-verify) unless explicitly requested
-- Avoid `git commit --amend` unless explicitly requested and safe to do so
-- NEVER commit unless user explicitly asks
+- All commit safety is handled by the /commit command
 
 ### Arguments
-If arguments are provided, use them as the commit message directly instead of analyzing changes.
+If arguments are provided (e.g., issue number), pass them to the /commit command.

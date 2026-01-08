@@ -4,18 +4,21 @@ description: Create git commits with smart grouping and conventional commit form
 
 ## Task
 
-Create git commits following Conventional Commits format with smart grouping.
+Create git commits following Conventional Commits format with smart grouping. **This command only works with staged files** (files that have been `git add`ed).
 
 ### Arguments
 If an issue number is provided (e.g., `/commit 123` or `/commit #123`), include it in the commit message format: `<type>: <description> (#<issue-number>)`
 
-1. **Analyze changes**:
-   - Run `git status` and `git diff --stat` to see all changes
-   - Run `git diff` to see detailed changes
+1. **Analyze staged changes**:
+   - Run `git status` to see staged and unstaged changes
+   - Run `git diff --cached --stat` to see only staged changes
+   - Run `git diff --cached` to see detailed staged changes
    - Run `git log --oneline -5` to understand existing commit style
+   - **IMPORTANT**: If there are no staged changes, inform the user and exit
 
-2. **Group changes by type**:
-   - Analyze the changes and group them into logical commits
+2. **Group staged changes by type**:
+   - Analyze only the staged changes
+   - Group them into logical commits
    - Each commit should be focused and atomic
    - Group related files together (e.g., a feature with its tests, a bug fix with its affected files)
    - Separate different types of changes (features, fixes, refactors, docs, etc.)
@@ -33,8 +36,9 @@ If an issue number is provided (e.g., `/commit 123` or `/commit #123`), include 
    - `ci:` - CI/CD changes
    - `build:` - Build system changes
 
-4. **Create commits**:
-   - For each logical group, stage only those files using `git add <files>`
+4. **Create commits from staged files**:
+   - For each logical group, use `git reset HEAD <files>` to unstage files not in the current group
+   - After unstaging unwanted files, the remaining staged files will be committed
    - Create commit with format: `<type>: <description>`
    - Use a heredoc for proper formatting:
      ```bash
@@ -43,6 +47,7 @@ If an issue number is provided (e.g., `/commit 123` or `/commit #123`), include 
      EOF
      )"
      ```
+   - Re-stage the unstaged files for the next commit: `git add <previously-unstaged-files>`
    - Run `git status` after each commit to verify
 
 5. **Commit message guidelines**:
@@ -60,7 +65,9 @@ If an issue number is provided (e.g., `/commit 123` or `/commit #123`), include 
 
 ## Important Notes
 
-- **Smart grouping**: If there are 5+ unrelated files, propose splitting into multiple focused commits
+- **Only staged files**: This command only works with files that have already been staged with `git add`
+- **Check for staged changes first**: Always verify there are staged changes before proceeding
+- **Smart grouping**: If there are 5+ unrelated staged files, propose splitting into multiple focused commits
 - **Do not commit everything at once** unless all changes are truly related
 - Do not push to remote unless explicitly requested
 - Do not commit files with secrets (.env, credentials.json, etc.)
