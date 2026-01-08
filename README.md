@@ -65,7 +65,7 @@ Comprehensive plugin supporting overall development workflows, code quality, and
   - `project-analyzer` - Comprehensive project onboarding and architecture audits
   - `claude-code-architect` - Claude Code architecture understanding and dynamic component generation
 
-- **Commands (17)** - Custom slash commands
+- **Commands (18)** - Custom slash commands
   - `/code-explain` - Explain code functionality and behavior
   - `/dev-docs` - Generate comprehensive development documentation
   - `/dev-docs-update` - Update existing documentation
@@ -78,6 +78,7 @@ Comprehensive plugin supporting overall development workflows, code quality, and
   - `/optimize-description` - Transform vague prompts into clear descriptions
   - `/review-docs` - Review documentation for format, consistency, and security
   - `/commit` - Create git commits with smart grouping and Conventional Commits format
+  - `/commit-push` - Create git commit and push changes to remote repository
   - `/commit-pr` - Create commits and draft pull request
   - `/onboarding-report` - Generate comprehensive project onboarding report
   - `/git-workflow` - Complete git workflow with multi-agent orchestration
