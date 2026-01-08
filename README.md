@@ -65,7 +65,7 @@ Comprehensive plugin supporting overall development workflows, code quality, and
   - `project-analyzer` - Comprehensive project onboarding and architecture audits
   - `claude-code-architect` - Claude Code architecture understanding and dynamic component generation
 
-- **Commands (18)** - Custom slash commands
+- **Commands (19)** - Custom slash commands
   - `/code-explain` - Explain code functionality and behavior
   - `/dev-docs` - Generate comprehensive development documentation
   - `/dev-docs-update` - Update existing documentation
@@ -84,6 +84,7 @@ Comprehensive plugin supporting overall development workflows, code quality, and
   - `/git-workflow` - Complete git workflow with multi-agent orchestration
   - `/plan-execution` - Create execution plans with agent selection and sequencing strategy
   - `/estimate-task` - Estimate agent types, task breakdown, tools, with Mermaid flow diagrams, parallelization analysis, agent interactions, and timeline estimates
+  - `/update-config` - Update Claude Code configuration files (agents, skills, commands, hooks) based on their descriptions
 
 - **Hooks (2)** - Event hooks
   - `post-tool-use-tracker` - Post-tool usage tracking
