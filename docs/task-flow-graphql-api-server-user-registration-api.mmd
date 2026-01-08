@@ -1,0 +1,53 @@
+flowchart TD
+    Start([Task: GraphQL User Registration API])
+
+    %% Phase 1: Analysis & Design
+    A1[graphql-architect: Analyze existing GraphQL schema]
+    Start --> A1
+    A1 --> |produces: schema-analysis.md| A2[postgres-specialist: Design users table schema]
+    A2 --> |produces: users-schema.sql| Decision1{Security Review Required?}
+
+    %% Phase 2: Security Validation
+    Decision1 -->|Yes - Auth feature| A3[security-specialist: Review design]
+    A3 --> |produces: security-checklist.md| Parallel1{Parallel Split}
+
+    %% Phase 3: Parallel Implementation
+    Parallel1 -->|branch 1| A4[graphql-architect: Implement schema & mutations]
+    Parallel1 -->|branch 2| A5[postgres-specialist: Create migration files]
+    Parallel1 -->|branch 3| A6[typescript-specialist: Generate TypeScript types]
+
+    A4 --> |produces: schema.graphql, mutations| Sync1((Sync Point 1))
+    A5 --> |produces: migrations/*.sql| Sync1
+    A6 --> |produces: types/*.ts| Sync1
+
+    %% Phase 4: Integration
+    Sync1 --> A7[backend-architect: Implement resolvers & business logic]
+    A7 --> |produces: resolvers/*.ts, tests/*.test.ts| A8[backend-architect: Run integration tests]
+    A8 --> |executes: npm test| Decision2{All Tests Pass?}
+
+    %% Phase 5: Conditional Debug
+    Decision2 -->|No| A9[debug-specialist: Investigate failures]
+    A9 --> |produces: debug-report.md| A7
+    Decision2 -->|Yes| A10[code-reviewer: Final security & quality review]
+
+    %% Phase 6: Final Review
+    A10 --> |produces: review-report.md| Decision3{Critical Issues?}
+    Decision3 -->|Yes| A7
+    Decision3 -->|No| End([Complete])
+
+    %% Styling
+    style A1 fill:#E8F4F8,stroke:#0066CC
+    style A2 fill:#E8F4F8,stroke:#0066CC
+    style A3 fill:#F0E68C,stroke:#DAA520
+    style A4 fill:#90EE90,stroke:#228B22
+    style A5 fill:#90EE90,stroke:#228B22
+    style A6 fill:#90EE90,stroke:#228B22
+    style A7 fill:#E8F4F8,stroke:#0066CC
+    style A8 fill:#E8F4F8,stroke:#0066CC
+    style A9 fill:#FFB6C1,stroke:#DC143C
+    style A10 fill:#F0E68C,stroke:#DAA520
+    style Decision1 fill:#FFD700,stroke:#FF8C00
+    style Decision2 fill:#FFD700,stroke:#FF8C00
+    style Decision3 fill:#FFD700,stroke:#FF8C00
+    style Parallel1 fill:#87CEEB,stroke:#4682B4
+    style Sync1 fill:#DDA0DD,stroke:#9370DB

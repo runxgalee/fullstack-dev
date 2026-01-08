@@ -14,6 +14,7 @@ Given a task description (provided as arguments or interactively), analyze and p
 6. **Decision Points**: Conditional logic showing when agents trigger based on conditions
 7. **Timeline Estimation**: Compare sequential vs parallel execution times
 8. **Tool Estimation**: List tools used across all phases
+9. **Expected Output Files**: Comprehensive list of all files each agent will generate, organized by agent with file paths, types, and purposes
 
 ## Agent Capability Database
 
@@ -318,6 +319,13 @@ Create a flowchart showing:
 - Error/Debug agents: `fill:#FFB6C1,stroke:#DC143C`
 - Review/Validation agents: `fill:#F0E68C,stroke:#DAA520`
 
+**Output the Mermaid diagram to a separate file**:
+- Create file: `docs/task-flow-{sanitized-task-name}.mmd` (sanitize task name: lowercase, replace spaces with hyphens, remove special chars)
+- Example: For "GraphQL User Registration API" → `docs/task-flow-graphql-user-registration-api.mmd`
+- If `docs/` directory doesn't exist, create it first
+- Write the complete Mermaid flowchart to this file (without markdown code fences)
+- In the main output, include a link to this file
+
 **Template**:
 ```mermaid
 flowchart TD
@@ -451,9 +459,108 @@ Group tools by phase and purpose:
 
 Include estimated frequency for each tool.
 
+### 13. Document Expected Output Files
+
+Create a comprehensive list of all files that will be generated during task execution:
+
+**File Categories**:
+1. **Analysis & Planning Documents** (`.md` reports, design docs)
+2. **Implementation Code** (`.ts`, `.tsx`, `.go`, `.sql`, etc.)
+3. **Configuration Files** (`.yaml`, `.json`, config files)
+4. **Test Files** (`.test.ts`, `.spec.ts`, integration tests)
+5. **Generated Assets** (types, schemas, migrations)
+
+**For each agent**, list:
+- **Agent name**
+- **Output files** with full relative paths from project root
+- **File type** (Report, Code, Config, Test, Generated)
+- **Purpose** of each file
+
+**Format as a table**:
+| Agent | File Path | Type | Purpose |
+|-------|-----------|------|---------|
+| agent-name | `path/to/file.ext` | Report/Code/Config/Test/Generated | Brief description |
+
+**Grouping**:
+- Group files by agent
+- Within each agent, order by creation sequence
+- Mark conditional files (e.g., debug-specialist outputs only if tests fail)
+
+**Example**:
+```markdown
+### Expected Output Files
+
+| Agent | File Path | Type | Purpose |
+|-------|-----------|------|---------|
+| **graphql-architect** | `docs/schema-analysis.md` | Report | GraphQL schema design and mutation specifications |
+| **graphql-architect** | `schema/user.graphql` | Code | User registration GraphQL schema definitions |
+| **postgres-specialist** | `docs/users-schema.sql` | Report | Database schema design document |
+| **postgres-specialist** | `migrations/20260108_create_users_table.sql` | Code | Users table creation migration |
+| **security-specialist** | `docs/security-checklist.md` | Report | Security validation and requirements |
+| **backend-architect** | `resolvers/user.ts` | Code | User registration resolver implementation |
+| **backend-architect** | `tests/user.test.ts` | Test | Unit tests for user registration |
+| **code-reviewer** | `docs/review-report.md` | Report | Final code quality and security review |
+| **debug-specialist** | `docs/debug-report.md` | Report | Debugging analysis (conditional - only if tests fail) |
+```
+
+This section provides:
+- A complete checklist of expected deliverables
+- Clear file organization structure
+- Easy verification of task completion
+- Input for subsequent automation (e.g., checking if all files were created)
+
+### 14. Output Results to Files
+
+After generating the complete analysis:
+
+#### Step 14.1: Create Output Directory
+- Check if `docs/` exists, create if needed using mkdir
+
+#### Step 14.2: Sanitize Task Name
+Convert task name to filename-safe format:
+- Lowercase all characters
+- Replace spaces with hyphens
+- Remove special characters (keep only alphanumeric and hyphens)
+- Truncate to 50 characters max
+- Example: "GraphQL User Registration API" → "graphql-user-registration-api"
+
+#### Step 14.3: Write Mermaid Diagram File
+Save the complete Mermaid flowchart to `docs/task-flow-{sanitized-name}.mmd`:
+- Do NOT include markdown code fences (```mermaid)
+- Write raw Mermaid syntax only
+- Include all style directives
+
+#### Step 14.4: Write Complete Estimation Report
+Save the complete estimation analysis to `docs/task-estimate-{sanitized-name}.md`:
+- Include all sections: Complexity Assessment, Recommended Agents, Agent Execution Flow, Agent Interaction Matrix, Detailed Task Breakdown, Decision Points, Tools Required, Expected Output Files, Estimated Timeline, Parallelization Summary
+- For the "Agent Execution Flow" section, include BOTH:
+  - Link to the separate `.mmd` file
+  - Inline mermaid diagram with code fences
+- Use full markdown formatting
+- This file serves as a permanent record of the estimation
+
+#### Step 14.5: Provide Summary to User
+After writing both files, provide a concise summary to the user:
+```
+✅ Task estimation complete!
+
+📊 **Full Report**: [docs/task-estimate-{sanitized-name}.md](./docs/task-estimate-{sanitized-name}.md)
+📈 **Flow Diagram**: [docs/task-flow-{sanitized-name}.mmd](./docs/task-flow-{sanitized-name}.mmd)
+
+**Quick Summary**:
+- Complexity: [Simple/Medium/Complex]
+- Agents Required: [count] agents
+- Estimated Time: [X-Y] minutes (optimized with parallelization)
+- Key Phases: [brief list]
+```
+
+Do NOT output the full estimation report inline to the user - only output the summary above. The full report is in the saved file.
+
 ## Output Format
 
-Present the complete estimation in this structured format:
+**IMPORTANT**: Write the complete estimation to `docs/task-estimate-{sanitized-task-name}.md` file, then provide only a summary to the user.
+
+The complete estimation file should follow this structured format:
 
 ````markdown
 ## Task Analysis: [Task Name]
@@ -470,9 +577,16 @@ Present the complete estimation in this structured format:
 
 ### Agent Execution Flow
 
+**Mermaid Diagram**: [View flow diagram](./docs/task-flow-{sanitized-task-name}.mmd)
+
+<details>
+<summary>Click to view inline diagram</summary>
+
 ```mermaid
 [Generate flowchart diagram as specified in step 7]
 ```
+
+</details>
 
 ### Agent Interaction Matrix
 
@@ -517,6 +631,17 @@ Present the complete estimation in this structured format:
 | **Read** | All | Read existing code, configs | High (50+ files) |
 | **Write** | 3 | Create new components | Medium (10-15 files) |
 | ... | ... | ... | ... |
+
+### Expected Output Files
+
+| Agent | File Path | Type | Purpose |
+|-------|-----------|------|---------|
+| **agent-name** | `path/to/output.md` | Report | Description of the file's purpose |
+| **agent-name** | `src/component.tsx` | Code | Implementation file description |
+| **agent-name** | `tests/component.test.ts` | Test | Test file description |
+| ... | ... | ... | ... |
+
+[Include all files that will be generated during task execution, organized by agent]
 
 ### Estimated Timeline
 
