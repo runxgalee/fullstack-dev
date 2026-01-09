@@ -3,6 +3,7 @@ description: Create git commit and push changes to remote repository
 allowedTools:
   - Command(development:commit)
   - Bash(git:*)
+  - Bash(plugin:*)
 ---
 
 ## Task
@@ -25,6 +26,11 @@ Follow this workflow:
    - Check if current branch tracks a remote branch
    - If no upstream branch exists, push with `-u` flag: `git push -u origin <branch-name>`
    - If upstream exists, use: `git push`
+   - Display the result to user
+
+3. **Update plugin marketplace**
+   - After successfully pushing to remote, run `plugin marketplace update fullstack-dev`
+   - This ensures plugin metadata is kept up-to-date after changes
    - Display the result to user
 
 ### Git Safety
