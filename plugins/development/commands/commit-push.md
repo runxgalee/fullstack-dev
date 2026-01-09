@@ -29,7 +29,7 @@ Follow this workflow:
    - Display the result to user
 
 3. **Update plugin marketplace**
-   - After successfully pushing to remote, run `plugin marketplace update fullstack-dev`
+   - After successfully pushing to remote, run `/plugin marketplace update fullstack-dev`
    - This ensures plugin metadata is kept up-to-date after changes
    - Display the result to user
 
