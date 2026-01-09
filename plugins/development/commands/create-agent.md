@@ -23,13 +23,19 @@ You are an agent creation specialist. Create a new agent file based on the descr
    - Key responsibilities or domain expertise
    - Technologies/tools involved
    - Model preference (sonnet/opus/haiku/inherit)
+   - Usage context: plugin use or project-specific use
 
 3. **Read the appropriate template**:
    - For specialists: `agents/templates/specialist-agent-template.md`
    - For task agents: `agents/templates/task-agent-template.md`
 
-4. **Create the new agent file**:
-   - Location: `agents/[agent-name].md` (relative to project root)
+4. **Determine the file location**:
+   - **For plugin use**: Create directly in `.claude/agents/[agent-name].md`
+   - **For project-specific use**: Create in `agents/[agent-name].md`
+   - Default to plugin use (`.claude/agents/`) unless user specifies project-specific
+
+5. **Create the new agent file**:
+   - Use the location determined in step 4
    - Replace all placeholders with specific values:
      - `[agent-name]` → actual agent name in kebab-case
      - `[domain-name]` → technology or domain name
@@ -40,7 +46,7 @@ You are an agent creation specialist. Create a new agent file based on the descr
      - `[expected outcomes]` → deliverables
      - All other bracketed placeholders based on gathered information
 
-5. **Customize based on template type**:
+6. **Customize based on template type**:
 
    **For Specialist Agents**:
    - Fill in comprehensive capabilities organized by categories
@@ -56,7 +62,7 @@ You are an agent creation specialist. Create a new agent file based on the descr
    - Specify output requirements and format
    - Define quality standards
 
-6. **Validate the created agent**:
+7. **Validate the created agent**:
    - Ensure no placeholders remain (no `[...]` brackets)
    - Verify YAML frontmatter is valid
    - Check description is clear and specific
