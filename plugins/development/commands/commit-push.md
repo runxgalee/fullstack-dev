@@ -13,7 +13,6 @@ Create git commit(s) using the /commit command and push changes to the remote re
 Follow this workflow:
 
 1. **Create commit(s) using /commit command**
-   - Use the Skill tool to invoke the `commit` skill
    - If arguments are provided to this command, pass them to /commit (e.g., issue number)
    - The /commit command will handle:
      - Analyzing staged changes

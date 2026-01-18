@@ -51,7 +51,7 @@ detect_repo() {
             echo "$repo"
             ;;
         # Database
-        database|prisma|migrations)
+        database-schema|prisma|migrations)
             echo "$repo"
             ;;
         # Package/monorepo structure
@@ -107,7 +107,7 @@ get_build_command() {
         fi
     fi
 
-    # Special case for database with Prisma
+    # Special case for database-schema with Prisma
     if [[ "$repo" == "database" ]] || [[ "$repo" =~ prisma ]]; then
         if [[ -f "$repo_path/schema.prisma" ]] || [[ -f "$repo_path/prisma/schema.prisma" ]]; then
             echo "cd $repo_path && npx prisma generate"
