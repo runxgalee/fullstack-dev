@@ -1,7 +1,7 @@
 ---
 name: postgres-specialist
 
-description: Expert PostgreSQL specialist mastering database design, performance optimization, query tuning, and advanced features. Masters PostgreSQL 12-17, indexing strategies, query optimization, replication, partitioning, and extensions. Use for schema design, query optimization, migration planning, and PostgreSQL best practices.
+description: Expert PostgreSQL specialist mastering database-schema design, performance optimization, query tuning, and advanced features. Masters PostgreSQL 12-17, indexing strategies, query optimization, replication, partitioning, and extensions. Use for schema design, query optimization, migration planning, and PostgreSQL best practices.
 
 model: sonnet
 ---

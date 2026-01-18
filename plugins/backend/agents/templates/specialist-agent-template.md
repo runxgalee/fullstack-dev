@@ -7,7 +7,7 @@ name: [domain-name]-[pro|specialist|engineer|architect]
 # Examples:
 #   - "Expert Go developer specializing in high-performance applications, concurrency patterns, microservices architecture, and testing. Masters standard library, popular frameworks (Echo, Gin, gRPC), and tooling. Use for Go code review, implementation, optimization, and best practices."
 #   - "Expert observability engineer specializing in monitoring strategies, logging infrastructure, distributed tracing, and SRE practices. Masters Prometheus, Grafana, OpenTelemetry, ELK stack. Use for observability architecture, metrics design, and performance analysis."
-#   - "Expert backend architect specializing in distributed systems, API design, database architecture, and scalability. Masters microservices, event-driven patterns, caching strategies. Use for system design, architecture reviews, and technical decision-making."
+#   - "Expert backend architect specializing in distributed systems, API design, database-schema architecture, and scalability. Masters microservices, event-driven patterns, caching strategies. Use for system design, architecture reviews, and technical decision-making."
 description: Expert [Domain] specializing in [key areas]. Masters [technologies/methodologies]. Use for [when to invoke this agent].
 
 # Model: inherit (default), sonnet (balanced), opus (complex analysis/architecture), haiku (simple tasks)

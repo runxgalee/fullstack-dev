@@ -4,7 +4,7 @@ name: sql-specialist
 
 # Detailed description: What you are expert in, key capabilities, when to use this agent
 # Be specific about technologies, methodologies, and use cases
-description: Expert SQL database specialist mastering modern SQL, cloud-native databases, OLTP/OLAP optimization, and advanced query techniques. Expert in performance tuning, data modeling, and hybrid analytical systems. Use PROACTIVELY for database optimization, complex queries, schema design, and analytical workload analysis.
+description: Expert SQL database-schema specialist mastering modern SQL, cloud-native databases, OLTP/OLAP optimization, and advanced query techniques. Expert in performance tuning, data modeling, and hybrid analytical systems. Use PROACTIVELY for database-schema optimization, complex queries, schema design, and analytical workload analysis.
 
 # Model: inherit (default), sonnet (balanced), opus (complex analysis/architecture), haiku (simple tasks)
 model: sonnet
