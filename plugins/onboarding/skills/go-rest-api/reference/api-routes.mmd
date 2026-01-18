@@ -1,0 +1,27 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e3f2fd', 'primaryTextColor': '#1565c0', 'primaryBorderColor': '#1976d2', 'lineColor': '#1976d2', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#f3e5f5'}}}%%
+graph LR
+    subgraph public["Public Endpoints"]
+        health["GET /health"]
+        docs["GET /docs"]
+        login["POST /auth/login"]
+        register["POST /auth/register"]
+    end
+
+    subgraph protected["Protected Endpoints (Auth Required)"]
+        subgraph users["Users API"]
+            get_users["GET /api/v1/users"]
+            get_user["GET /api/v1/users/:id"]
+            create_user["POST /api/v1/users"]
+            update_user["PUT /api/v1/users/:id"]
+            delete_user["DELETE /api/v1/users/:id"]
+        end
+
+        subgraph products["Products API"]
+            get_products["GET /api/v1/products"]
+            get_product["GET /api/v1/products/:id"]
+            create_product["POST /api/v1/products"]
+        end
+    end
+
+    client((Client)) --> public
+    client --> |"Bearer Token"| protected

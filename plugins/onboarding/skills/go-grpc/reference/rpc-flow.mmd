@@ -1,0 +1,37 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e3f2fd', 'primaryTextColor': '#1565c0', 'primaryBorderColor': '#1976d2', 'lineColor': '#1976d2'}}}%%
+sequenceDiagram
+    participant C as Client
+    participant I as Interceptors
+    participant S as Server
+    participant D as Database
+
+    Note over C,D: Unary RPC Flow
+
+    C->>I: GetUser(GetUserRequest)
+    I->>I: Recovery Interceptor
+    I->>I: Logging Interceptor
+    I->>I: Auth Interceptor
+    I->>I: Validation Interceptor
+    I->>S: Forward Request
+    S->>D: Query User
+    D-->>S: User Data
+    S-->>I: GetUserResponse
+    I-->>C: GetUserResponse
+
+    Note over C,D: Server Streaming Flow
+
+    C->>I: ListUsers(ListUsersRequest)
+    I->>S: Forward Request
+    loop For each user
+        S->>D: Query Next User
+        D-->>S: User Data
+        S-->>C: User (stream)
+    end
+    S-->>C: Stream Complete
+
+    Note over C,D: Error Flow
+
+    C->>I: GetUser(InvalidRequest)
+    I->>S: Forward Request
+    S-->>I: status.Error(NotFound)
+    I-->>C: gRPC Error with Code

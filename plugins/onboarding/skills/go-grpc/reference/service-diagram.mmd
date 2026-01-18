@@ -1,0 +1,44 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e0f2f1', 'primaryTextColor': '#00695c', 'primaryBorderColor': '#00897b', 'lineColor': '#00897b', 'secondaryColor': '#fff3e0', 'tertiaryColor': '#fce4ec'}}}%%
+graph TB
+    subgraph clients["Clients"]
+        web["Web Client"]
+        mobile["Mobile Client"]
+        service["Other Services"]
+    end
+
+    subgraph gateway["API Gateway (optional)"]
+        grpcgw["gRPC-Gateway"]
+    end
+
+    subgraph server["gRPC Server"]
+        subgraph interceptors["Interceptor Chain"]
+            recovery["Recovery"]
+            logging["Logging"]
+            auth["Authentication"]
+            validator["Validation"]
+        end
+
+        subgraph services["Services"]
+            userSvc["UserService"]
+            productSvc["ProductService"]
+            orderSvc["OrderService"]
+        end
+    end
+
+    subgraph deps["Dependencies"]
+        db[(Database)]
+        cache[(Redis)]
+        queue[(Message Queue)]
+    end
+
+    web -->|HTTP/JSON| grpcgw
+    grpcgw -->|gRPC| interceptors
+    mobile -->|gRPC| interceptors
+    service -->|gRPC| interceptors
+
+    interceptors --> services
+    userSvc --> db
+    userSvc --> cache
+    productSvc --> db
+    orderSvc --> db
+    orderSvc --> queue

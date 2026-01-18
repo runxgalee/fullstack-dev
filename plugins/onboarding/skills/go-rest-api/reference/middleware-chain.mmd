@@ -1,0 +1,35 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#e8f5e9', 'primaryTextColor': '#2e7d32', 'primaryBorderColor': '#43a047', 'lineColor': '#43a047'}}}%%
+graph TD
+    subgraph request["Incoming Request"]
+        req["HTTP Request"]
+    end
+
+    subgraph global["Global Middleware"]
+        recovery["Recovery/Panic Handler"]
+        logger["Request Logger"]
+        cors["CORS Handler"]
+        requestid["Request ID"]
+    end
+
+    subgraph group["Group Middleware (/api)"]
+        ratelimit["Rate Limiter"]
+        auth["Authentication"]
+        authz["Authorization"]
+    end
+
+    subgraph handler["Handler"]
+        validate["Request Validation"]
+        business["Business Logic"]
+        response["Response"]
+    end
+
+    req --> recovery
+    recovery --> logger
+    logger --> cors
+    cors --> requestid
+    requestid --> ratelimit
+    ratelimit --> auth
+    auth --> authz
+    authz --> validate
+    validate --> business
+    business --> response
