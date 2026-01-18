@@ -15,6 +15,7 @@ fullstack-dev/
 └── plugins/
     ├── frontend/              # Frontend development plugin
     ├── backend/               # Backend development plugin
+    ├── onboarding/            # Project onboarding plugin
     └── development/           # Development workflow plugin
 ```
 
@@ -50,7 +51,23 @@ Specialized agents for backend development, infrastructure, and data engineering
 - `sre-specialist` - Production monitoring, observability, and SRE practices
 - `graphql-architect` - GraphQL architecture, federation, and schema design expert (also in frontend)
 
-### 3. Development Plugin
+### 3. Onboarding Plugin
+
+Tools for project analysis and team onboarding.
+
+**Commands (1):**
+- `/onboard-project` - Analyze a project directory and generate comprehensive onboarding report. Dynamically detects technologies and applies relevant skills (Go, React, GraphQL, gRPC, etc.)
+
+**Skills (7):**
+- `go-project` - Comprehensive Go project analysis for onboarding. Analyzes architecture patterns, dependencies, package organization, and generates onboarding documentation.
+- `go-rest-api` - Go REST API project analysis using Echo, Gin, Chi, Fiber, or net/http. Analyzes routing patterns, middleware chains, handler implementations, authentication patterns, and generates API endpoint documentation.
+- `go-graphql` - Go GraphQL project analysis using gqlgen. Analyzes schema design, resolver implementations, directive usage, dataloaders, N+1 query patterns, and generates GraphQL API documentation.
+- `go-grpc` - Go gRPC project analysis using Protocol Buffers. Analyzes proto definitions, service implementations, interceptors, streaming patterns, and generates gRPC API documentation.
+- `database-schema` - Database schema and migration analysis. Supports Go-based migration tools (golang-migrate, goose, sql-migrate, atlas), identifies table relationships, and generates ER diagrams.
+- `react-project` - React/Next.js project analysis. Analyzes component structure, page counts, UI patterns, custom hooks, state management, and routing structure.
+- `review-project` - Project health analysis covering structural issues, security vulnerabilities, performance concerns, and code stability metrics. Generates comprehensive health reports with scores and actionable recommendations.
+
+### 4. Development Plugin
 
 Comprehensive plugin supporting overall development workflows, code quality, and project management.
 
